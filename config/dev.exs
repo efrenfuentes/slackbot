@@ -7,12 +7,11 @@ config :logger, :console,
 # Configure our Slackbot
 config :slackbot, Slackbot.Robot,
   adapter: Hedwig.Adapters.Slack,
-  name: "Slackbot",
-  aka: "slackbot",
+  name: "Jarvis",
+  aka: "jarvis",
   token: System.get_env("SLACK_API_TOKEN"),
   responders: [
     {Hedwig.Responders.Help, []},
-    {Hedwig.Responders.GreatSuccess, []},
-    {Hedwig.Responders.ShipIt, []},
+    {Hedwig.Responders.Ping, []},
     {Slackbot.Responders.Birthday, []}
   ]
