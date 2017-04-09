@@ -15,7 +15,7 @@ defmodule Slackbot.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger],
+    [extra_applications: [:logger, :hedwig_slack],
      mod: {Slackbot.Application, []}]
   end
 
@@ -29,6 +29,18 @@ defmodule Slackbot.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:hedwig_slack, "~> 1.0"}
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: [
+        "Efren Fuentes"
+      ],
+      licenses: [],
+      links: %{"GitHub" => "https://github.com/efrenfuentes/slackbot"}
+    ]
   end
 end
